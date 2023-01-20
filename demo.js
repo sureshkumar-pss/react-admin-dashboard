@@ -19,6 +19,13 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { Link, useLocation, Outlet } from 'react-router-dom';
+import Badge from '@mui/material/Badge';
+import MailIcon from '@mui/icons-material/Mail';
+import Grid from '@mui/material/Grid';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import Avatar from '@mui/material/Avatar';
+
+
 const drawerWidth = 240;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -82,17 +89,20 @@ export default function PersistentDrawerLeft() {
     { title: 'Dashboard', path: '/' },
   ];
   const menu2=[
-    { title: 'Colors', path: '/about' },
-    { title:'Typography',path:'/about'}
+    { title: 'Colors', path: '/colors' },
+    { title:'Typography',path:'/typography'}
   ]
   const menu3=[
-    {title:'Base' ,path:'/'},
+    {title:'Contact' ,path:'/contact'},
     {title:'Buttons', path:'/about'}
   ]
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
+      
       <AppBar position="fixed" open={open} sx={{backgroundColor:"white"}}>
+      <Grid container>
+        <Grid xs={6}>
         <Toolbar sx={{color:"rgba(44,56,74,.681)"}}>
           <IconButton
             color="inherit"
@@ -106,7 +116,37 @@ export default function PersistentDrawerLeft() {
           <Typography variant="h6" noWrap component="div">
             DashBoard
           </Typography>
+         
         </Toolbar>
+          </Grid>
+        <Grid xs={6} sx={{ marginTop:"10px" ,display:"flex",justifyContent:"end",gap:"30px"}}>
+        <Badge badgeContent={4} color="primary"sx={{ marginTop:"10px"}}  >
+      <MailIcon color="action" />
+    </Badge>
+    <Badge badgeContent={4} color="primary"sx={{ marginTop:"10px"}}  >
+      <NotificationsIcon  color="action" />
+    </Badge>
+    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          </Grid>
+      </Grid>
+        {/* <Toolbar sx={{color:"rgba(44,56,74,.681)"}}>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={{ mr: 2, ...(open && { display: 'true' }) }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap component="div">
+            DashBoard
+          </Typography>
+          <Badge badgeContent={4} color="primary" style={{display:"flex",justifyContent:"end"}} >
+      <MailIcon color="action" />
+    </Badge>
+        </Toolbar>
+        */}
       </AppBar>
       <Drawer
         sx={{
@@ -154,6 +194,7 @@ export default function PersistentDrawerLeft() {
         <Typography variant="h6" sx={{paddingLeft:"20px"}}>
            Themes
           </Typography>
+         
         <List>
           {menu2.map((item, index) => (
             <ListItem

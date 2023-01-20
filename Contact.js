@@ -45,15 +45,12 @@ const Contact =()=>{
         {items.map(item => (
           <Box>
           <Box  key={item.id} sx={{ padding:"10px" ,boxShadow: "0px 2px 4px -1px rgb(0 0 0 / 20%) ,0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)"}} >
-       
          {item.name} <br />
         {item.username} <br />
-       
        {item.address.street} <br />
        {item.address.city}<br />
        <div style={{color:"red"}}>
        {item.address.zipcode}
-       
        </div>
        {item.phone} 
       

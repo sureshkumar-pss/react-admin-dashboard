@@ -30,6 +30,11 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import { makeStyles } from "@material-ui/core/styles";
+import Collapse from '@mui/material/Collapse';
+import StarBorder from '@mui/icons-material/StarBorder';
 const drawerWidth = 240;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -75,7 +80,14 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
 }));
-
+// const useStyles = makeStyles(() => ({
+ 
+//     "& ul": {
+//       marginLeft:"-17px",
+     
+//     }
+  
+// }));
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const location = useLocation();
@@ -98,7 +110,14 @@ export default function PersistentDrawerLeft() {
   ]
   const menu3=[
     {title:'Contact' ,path:'/contact'},
-    {title:'Buttons', path:'/about'}
+    {title:'Buttons', path:'/about'},
+    {title:'Base', path:'/about'},
+  ]
+  const menu4=[
+    {title:'Alerts' ,path:'/contact'},
+    {title:'Badges', path:'/about'},
+    {title:'Model', path:'/about'},
+    {title:'Toasts', path:'/about'},
   ]
   const [anchorEl, setAnchorEl] = React.useState(null);
   const show = Boolean(anchorEl);
@@ -108,6 +127,11 @@ export default function PersistentDrawerLeft() {
   const hclose = () => {
     setAnchorEl(null);
   };
+  const [pop, setPop] = React.useState(false);
+  const handlePop= () => {
+    setPop(!pop);
+  };
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -128,22 +152,24 @@ export default function PersistentDrawerLeft() {
           <Typography variant="h6" noWrap component="div">
             DashBoard
           </Typography>
-         
         </Toolbar>
           </Grid>
         <Grid xs={6} sx={{ marginTop:"10px" ,display:"flex",justifyContent:"end",gap:"30px"}}>
+        <Tooltip title="Email">
         <Badge badgeContent={4} color="primary"sx={{ marginTop:"10px"}}  >
       <MailIcon color="action" />
     </Badge>
+    </Tooltip>
+    <Tooltip title="Notification">
     <Badge badgeContent={4} color="primary"sx={{ marginTop:"10px"}}  >
       <NotificationsIcon  color="action" />
     </Badge>
+    </Tooltip>
     <Tooltip title="Account settings">
           <IconButton
             onClick={hopen}
             size="small"
-            sx={{ ml: 2 }}
-           
+            // sx={{ ml: 2 }}
           >
             <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
           </IconButton>
@@ -168,6 +194,7 @@ export default function PersistentDrawerLeft() {
     </Badge>
         </Toolbar>
         */}
+
         <Menu
         anchorEl={anchorEl}
         id="account-menu"
@@ -316,6 +343,39 @@ export default function PersistentDrawerLeft() {
             </ListItem>
           ))}
         </List>
+        <List sx={{marginLeft:"-17px"}} >
+        <ListItem>
+        <ListItemButton onClick={handlePop}>
+        <ListItemIcon>
+        <InboxIcon />
+        </ListItemIcon>
+        <ListItemText primary="Inbox" />
+        {pop ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+        </ListItem>
+        </List>
+        <Collapse in={pop} >
+        <List component="div" disablePadding>
+        {menu4.map((item, index) => (
+            <ListItem
+              key={item.title}
+              disablePadding
+              component={Link}
+              to={item.path}
+              button
+              selected={item.path === path}
+            >
+          <ListItemButton sx={{ pl: 4 }}>
+            <ListItemIcon>
+              <StarBorder />
+            </ListItemIcon>
+            <ListItemText primary={item.title} />
+          </ListItemButton>
+          </ListItem>
+))}
+        </List>
+      </Collapse>
+      
       </Drawer>
       <Main open={open}>
         <DrawerHeader />

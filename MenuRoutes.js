@@ -1,6 +1,6 @@
 import { BrowserRouter as Router,Routes,Route} from "react-router-dom"
 import Home from "./Home";
-import Demo from "./demo";
+import Drawer from "./Drawer";
 import * as React from 'react';
 import About from "./About";
 import Colors from "./Colors";
@@ -10,7 +10,7 @@ const MenuRoutes=()=>{
  return (
   <Router>
   <Routes>
-  <Route  element={<Demo />} >
+  <Route  element={<Drawer />} >
     <Route path="/" element={<Home />} />
     <Route path="/about" element={<About/>} />
     <Route path="/colors" element={<Colors />} />

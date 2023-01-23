@@ -1,8 +1,9 @@
 import * as React from 'react';
-const About =()=>{
+import LineChart from './LineChart.js';
+const About = ()=>{
 return (
   <div>
-    dsdfff
+     <LineChart />
   </div>
 )
 }

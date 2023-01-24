@@ -197,12 +197,8 @@ const Home = () => {
               </div>
             </Box>
             </Box>
-  
-      
-            <Typography>Sunday</Typography>
-            <Box sx={{ width: '100%',marginTop:"10px" }}>
-            <LinearProgress variant="determinate" value={progress} />
- 
+            tyu6
+            
           </Grid>
           
         </Grid>

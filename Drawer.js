@@ -35,6 +35,7 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import { makeStyles } from "@material-ui/core/styles";
 import Collapse from '@mui/material/Collapse';
 import StarBorder from '@mui/icons-material/StarBorder';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 const drawerWidth = 240;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -292,7 +293,7 @@ export default function PersistentDrawerLeft() {
             >
               <ListItemButton>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {index % 2 === 0 ? <DashboardIcon /> : <MailIcon />}
                 </ListItemIcon>
                 <ListItemText primary={item.title} />
               </ListItemButton>

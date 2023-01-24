@@ -6,7 +6,29 @@ import Typography from '@mui/material/Typography';
 import LineChart from './Chart.js';
 import Divider from '@mui/material/Divider';
 import LinearProgress from '@mui/material/LinearProgress';
+import MailIcon from '@mui/icons-material/Mail';
+import BoyIcon from '@mui/icons-material/Boy';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import Avatar from '@mui/material/Avatar';
 const Home = () => {
+  function createData(name, calories, fat, carbs, protein) {
+    return { name, calories, fat, carbs, protein };
+  }
+  
+  const rows = [
+    createData(   <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" /> , 	
+    Yiorgos Avraamu, 6.0, 24, 4.0),
+    createData( <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />, 237, 9.0, 37, 4.3),
+    createData( <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />, 262, 16.0, 24, 6.0),
+    createData( <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />, 305, 3.7, 67, 4.3),
+    createData( <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />, 356, 16.0, 49, 3.9),
+  ];
   const [progress, setProgress] = React.useState(0);
 
   React.useEffect(() => {
@@ -197,13 +219,56 @@ const Home = () => {
               </div>
             </Box>
             </Box>
-            tyu6
-            
+            <Box >
+              <BoyIcon  sx={{paddingTop:"5px"}}/>
+            <span>Male</span>
+            </Box>
+            <Box sx={{ width: '100%',marginTop:"10px" }}>
+         <LinearProgress variant="determinate" value={progress} color="success"  />
+    </Box>
+    <Box >
+              <BoyIcon  sx={{paddingTop:"5px",marginTop:"20px"}}/>
+            <span>Male</span>
+            </Box>
+            <Box sx={{ width: '100%',marginTop:"10px" }}>
+         <LinearProgress variant="determinate" value={progress} color="success"  />
+    </Box>
           </Grid>
           
         </Grid>
       
-    
+        <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+          <TableCell><BoyIcon /></TableCell>
+          <TableCell align="right">User</TableCell>
+            <TableCell align="right">Country</TableCell>
+            <TableCell align="right">Usage</TableCell>
+            <TableCell align="right">Payment Method</TableCell>
+            <TableCell align="right">activity</TableCell>
+          
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow
+              key={row.name}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.name}
+              </TableCell>
+              <TableCell align="right">{row.calories}</TableCell>
+              <TableCell align="right">{row.fat}</TableCell>
+              <TableCell align="right">{row.carbs}</TableCell>
+              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{row.protein}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
       
       </Box>
 

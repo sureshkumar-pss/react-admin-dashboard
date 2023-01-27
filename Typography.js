@@ -37,7 +37,7 @@ const Typography = () => {
           }}
         >
           <h5>Headings</h5>
-          <a>Docs</a>
+          <a href="https://coreui.io/docs/content/typography/">Docs</a>
         </Box>
         <Divider />
         {/* <Typography sx={{ paddingLeft: '10px' }}> */}

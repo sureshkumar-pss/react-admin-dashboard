@@ -15,8 +15,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
-import Charts from './Charts.js';
-import MyChart from './Chart';
+
 const Home = () => {
   function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
@@ -32,28 +31,28 @@ const Home = () => {
     ),
     createData(
       <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />,
-      237,
+      'Yiorgos Avraamu',
       9.0,
       37,
       4.3
     ),
     createData(
       <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />,
-      262,
+      'Yiorgos Avraamu',
       16.0,
       24,
       6.0
     ),
     createData(
       <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />,
-      305,
+      'Yiorgos Avraamu',
       3.7,
       67,
       4.3
     ),
     createData(
       <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />,
-      356,
+      'Yiorgos Avraamu',
       16.0,
       49,
       3.9
@@ -118,7 +117,7 @@ const Home = () => {
           </Grid>
         </Grid>
       </Box> */}
-      <MyChart />
+
       <Box
         sx={{
           boxShadow:
@@ -301,7 +300,6 @@ const Home = () => {
           </Table>
         </TableContainer>
       </Box>
-      <Charts />
     </div>
   );
 };

@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import LineChart from './Chart.js';
 import Divider from '@mui/material/Divider';
 import LinearProgress from '@mui/material/LinearProgress';
 import MailIcon from '@mui/icons-material/Mail';
@@ -16,6 +15,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
+import Charts from './Charts.js';
+import MyChart from './Chart';
 const Home = () => {
   function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
@@ -77,25 +78,25 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <Box>
+      {/* <Box>
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={3} sx={{ backgroundColor: '#321fdb' }}>
-            {/* <Typography paragraph>
+            <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
           dolor purus non enim praesent elementum facilisis leo vel. Risus at
           ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
           quisque non tellus. 
-        </Typography> */}
+        </Typography>
           </Grid>
           <Grid item xs={3} sx={{ backgroundColor: '#39f' }}>
-            {/* <Typography paragraph>
+            <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
           dolor purus non enim praesent elementum facilisis leo vel. Risus at
           ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
           quisque non tellus. 
-        </Typography> */}
+        </Typography>
           </Grid>
           <Grid item xs={3} sx={{ backgroundColor: '#ffc107' }}>
             <Typography paragraph>
@@ -116,8 +117,8 @@ const Home = () => {
             </Typography>
           </Grid>
         </Grid>
-      </Box>
-
+      </Box> */}
+      <MyChart />
       <Box
         sx={{
           boxShadow:
@@ -300,6 +301,7 @@ const Home = () => {
           </Table>
         </TableContainer>
       </Box>
+      <Charts />
     </div>
   );
 };

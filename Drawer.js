@@ -188,7 +188,9 @@ export default function PersistentDrawerLeft() {
                 size="small"
                 // sx={{ ml: 2 }}
               >
-                <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                <Avatar sx={{ width: 32, height: 32, marginTop: '-12px' }}>
+                  M
+                </Avatar>
               </IconButton>
             </Tooltip>
           </Grid>

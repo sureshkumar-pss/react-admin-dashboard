@@ -370,8 +370,10 @@ const Home = () => {
                     }}
                   ></div>
                   <div>
-                    <Typography>New Clients</Typography>
-                    <Typography>9999</Typography>
+                    <Typography sx={{ color: 'rgba(0,0,21,.175)' }}>
+                      New Clients
+                    </Typography>
+                    <Typography sx={{ fontWeight: 700 }}>9999</Typography>
                   </div>
                 </div>
               </Box>
@@ -385,8 +387,10 @@ const Home = () => {
                     }}
                   ></div>
                   <div>
-                    <Typography>Recurring Clients</Typography>
-                    <Typography>9999</Typography>
+                    <Typography sx={{ color: 'rgba(0,0,21,.175)' }}>
+                      Recurring Clients
+                    </Typography>
+                    <Typography sx={{ fontWeight: 700 }}> 9999</Typography>
                   </div>
                 </div>
               </Box>
@@ -449,8 +453,10 @@ const Home = () => {
                     }}
                   ></div>
                   <div>
-                    <Typography>Pageviews</Typography>
-                    <Typography>9999</Typography>
+                    <Typography sx={{ color: 'rgba(0,0,21,.175)' }}>
+                      Pageviews
+                    </Typography>
+                    <Typography sx={{ fontWeight: 700 }}>9999</Typography>
                   </div>
                 </div>
               </Box>
@@ -464,8 +470,10 @@ const Home = () => {
                     }}
                   ></div>
                   <div>
-                    <Typography>Organic</Typography>
-                    <Typography>9999</Typography>
+                    <Typography sx={{ color: 'rgba(0,0,21,.175)' }}>
+                      Organic
+                    </Typography>
+                    <Typography sx={{ fontWeight: 700 }}>9999</Typography>
                   </div>
                 </div>
               </Box>

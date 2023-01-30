@@ -15,6 +15,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
+import Chart from './Chart.js';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 
 const Home = () => {
   function createData(name, calories, fat, carbs, protein) {
@@ -117,6 +120,48 @@ const Home = () => {
           </Grid>
         </Grid>
       </Box> */}
+      <Box
+        sx={{
+          boxShadow:
+            '0px 2px 4px -1px rgb(0 0 0 / 20%) ,0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)',
+          padding: '10px',
+          margin: '20px',
+        }}
+      >
+        <Grid container>
+          <Grid xs={5}>
+            <Typography sx={{ fontWeight: 700 }}>Traffic</Typography>
+            <Typography sx={{ color: 'rgba(0,0,21,.175)' }}>
+              January - July 2023
+            </Typography>
+          </Grid>
+          <Grid xs={5}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                '& > *': {
+                  m: 1,
+                },
+              }}
+            >
+              <ButtonGroup
+                variant="outlined"
+                aria-label="outlined button group"
+              >
+                <Button>One</Button>
+                <Button varient="contained">Two</Button>
+                <Button>Three</Button>
+              </ButtonGroup>
+            </Box>
+          </Grid>
+          <Grid xs={2}>
+            <Button style={{ BackgroundColor: '#5141e0' }}>icon</Button>
+          </Grid>
+        </Grid>
+        <Chart />
+      </Box>
 
       <Box
         sx={{

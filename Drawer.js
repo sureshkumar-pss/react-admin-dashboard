@@ -32,10 +32,12 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 import Collapse from '@mui/material/Collapse';
 import StarBorder from '@mui/icons-material/StarBorder';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import InvertColorsIcon from '@mui/icons-material/InvertColors';
+import CreateIcon from '@mui/icons-material/Create';
 const drawerWidth = 240;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -82,12 +84,12 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 // const useStyles = makeStyles(() => ({
- 
+
 //     "& ul": {
 //       marginLeft:"-17px",
-     
+
 //     }
-  
+
 // }));
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
@@ -102,24 +104,22 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const menu1 = [
-    { title: 'Dashboard', path: '/' },
-  ];
-  const menu2=[
+  const menu1 = [{ title: 'Dashboard', path: '/' }];
+  const menu2 = [
     { title: 'Colors', path: '/colors' },
-    { title:'Typography',path:'/typography'}
-  ]
-  const menu3=[
-    {title:'Contact' ,path:'/contact'},
-    {title:'Buttons', path:'/about'},
-    {title:'Base', path:'/about'},
-  ]
-  const menu4=[
-    {title:'Alerts' ,path:'/contact'},
-    {title:'Badges', path:'/about'},
-    {title:'Model', path:'/about'},
-    {title:'Toasts', path:'/about'},
-  ]
+    { title: 'Typography', path: '/typography' },
+  ];
+  const menu3 = [
+    { title: 'UserList', path: '/userlist' },
+    { title: 'Buttons', path: '/about' },
+    { title: 'Base', path: '/about' },
+  ];
+  const menu4 = [
+    { title: 'Alerts', path: '/contact' },
+    { title: 'Badges', path: '/about' },
+    { title: 'Model', path: '/about' },
+    { title: 'Toasts', path: '/about' },
+  ];
   const [anchorEl, setAnchorEl] = React.useState(null);
   const show = Boolean(anchorEl);
   const hopen = (event) => {
@@ -129,54 +129,70 @@ export default function PersistentDrawerLeft() {
     setAnchorEl(null);
   };
   const [pop, setPop] = React.useState(false);
-  const handlePop= () => {
+  const handlePop = () => {
     setPop(!pop);
   };
 
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      
-      <AppBar position="fixed" open={open} sx={{backgroundColor:"white"}}>
-      <Grid container>
-        <Grid xs={6}>
-        <Toolbar sx={{color:"rgba(44,56,74,.681)"}}>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: 'true' }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            DashBoard
-          </Typography>
-        </Toolbar>
+
+      <AppBar position="fixed" open={open} sx={{ backgroundColor: 'white' }}>
+        <Grid container>
+          <Grid xs={6}>
+            <Toolbar sx={{ color: 'rgba(44,56,74,.681)' }}>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                sx={{ mr: 2, ...(open && { display: 'true' }) }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" noWrap component="div">
+                DashBoard
+              </Typography>
+            </Toolbar>
           </Grid>
-        <Grid xs={6} sx={{ marginTop:"10px" ,display:"flex",justifyContent:"end",gap:"30px"}}>
-        <Tooltip title="Email">
-        <Badge badgeContent={4} color="primary"sx={{ marginTop:"10px"}}  >
-      <MailIcon color="action" />
-    </Badge>
-    </Tooltip>
-    <Tooltip title="Notification">
-    <Badge badgeContent={4} color="primary"sx={{ marginTop:"10px"}}  >
-      <NotificationsIcon  color="action" />
-    </Badge>
-    </Tooltip>
-    <Tooltip title="Account settings">
-          <IconButton
-            onClick={hopen}
-            size="small"
-            // sx={{ ml: 2 }}
+          <Grid
+            xs={6}
+            sx={{
+              marginTop: '10px',
+              display: 'flex',
+              justifyContent: 'end',
+              gap: '30px',
+            }}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
-          </IconButton>
-        </Tooltip>
+            <Tooltip title="Email">
+              <Badge
+                badgeContent={4}
+                color="primary"
+                sx={{ marginTop: '10px' }}
+              >
+                <MailIcon color="action" />
+              </Badge>
+            </Tooltip>
+            <Tooltip title="Notification">
+              <Badge
+                badgeContent={4}
+                color="primary"
+                sx={{ marginTop: '10px' }}
+              >
+                <NotificationsIcon color="action" />
+              </Badge>
+            </Tooltip>
+            <Tooltip title="Account settings">
+              <IconButton
+                onClick={hopen}
+                size="small"
+                // sx={{ ml: 2 }}
+              >
+                <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+              </IconButton>
+            </Tooltip>
           </Grid>
-      </Grid>
+        </Grid>
         {/* <Toolbar sx={{color:"rgba(44,56,74,.681)"}}>
           <IconButton
             color="inherit"
@@ -197,66 +213,65 @@ export default function PersistentDrawerLeft() {
         */}
 
         <Menu
-        anchorEl={anchorEl}
-        id="account-menu"
-        open={show}
-        onClose={hclose}
-        
-        PaperProps={{
-          elevation: 0,
-          sx: {
-            overflow: 'visible',
-            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-            mt: 1.5,
-            '& .MuiAvatar-root': {
-              width: 32,
-              height: 32,
-              ml: -0.5,
-              mr: 1,
+          anchorEl={anchorEl}
+          id="account-menu"
+          open={show}
+          onClose={hclose}
+          PaperProps={{
+            elevation: 0,
+            sx: {
+              overflow: 'visible',
+              filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+              mt: 1.5,
+              '& .MuiAvatar-root': {
+                width: 32,
+                height: 32,
+                ml: -0.5,
+                mr: 1,
+              },
+              '&:before': {
+                content: '""',
+                display: 'block',
+                position: 'absolute',
+                top: 0,
+                right: 14,
+                width: 10,
+                height: 10,
+                bgcolor: 'background.paper',
+                transform: 'translateY(-50%) rotate(45deg)',
+                zIndex: 0,
+              },
             },
-            '&:before': {
-              content: '""',
-              display: 'block',
-              position: 'absolute',
-              top: 0,
-              right: 14,
-              width: 10,
-              height: 10,
-              bgcolor: 'background.paper',
-              transform: 'translateY(-50%) rotate(45deg)',
-              zIndex: 0,
-            },
-          },
-        }}
-        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-      >
-        <MenuItem>
-          <Avatar /> Profile
-        </MenuItem>
-        <MenuItem>
-          <Avatar /> My account
-        </MenuItem>
-        <Divider />
-        <MenuItem>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Add another account
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Settings
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <Logout fontSize="small" />
-          </ListItemIcon>
-          Logout
-        </MenuItem>
-      </Menu>
+          }}
+          transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+          anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        >
+          <MenuItem>
+            <Avatar /> Profile
+          </MenuItem>
+          <MenuItem>
+            <Avatar /> My account
+          </MenuItem>
+          <Divider />
+          <MenuItem>
+            <ListItemIcon>
+              <PersonAdd fontSize="small" />
+            </ListItemIcon>
+            Add another account
+          </MenuItem>
+          <MenuItem>
+            <ListItemIcon>
+              <Settings fontSize="small" />
+            </ListItemIcon>
+            Settings
+          </MenuItem>
+          <MenuItem>
+            <ListItemIcon>
+              <Logout fontSize="small" />
+            </ListItemIcon>
+            Logout
+          </MenuItem>
+        </Menu>
       </AppBar>
       <Drawer
         sx={{
@@ -271,7 +286,7 @@ export default function PersistentDrawerLeft() {
         anchor="left"
         open={open}
       >
-        <DrawerHeader sx={{backgroundColor:"#321fdb"}}>
+        <DrawerHeader sx={{ backgroundColor: '#321fdb' }}>
           {/* <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? (
               <ChevronLeftIcon />
@@ -301,10 +316,10 @@ export default function PersistentDrawerLeft() {
           ))}
         </List>
         <Divider />
-        <Typography variant="h6" sx={{paddingLeft:"20px"}}>
-           Themes
-          </Typography>
-         
+        <Typography variant="h6" sx={{ paddingLeft: '20px' }}>
+          Themes
+        </Typography>
+
         <List>
           {menu2.map((item, index) => (
             <ListItem
@@ -317,7 +332,7 @@ export default function PersistentDrawerLeft() {
             >
               <ListItemButton>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {index % 2 === 0 ? <InvertColorsIcon /> : <CreateIcon />}
                 </ListItemIcon>
                 <ListItemText primary={item.title} />
               </ListItemButton>
@@ -344,39 +359,38 @@ export default function PersistentDrawerLeft() {
             </ListItem>
           ))}
         </List>
-        <List sx={{marginLeft:"-17px"}} >
-        <ListItem>
-        <ListItemButton onClick={handlePop}>
-        <ListItemIcon>
-        <InboxIcon />
-        </ListItemIcon>
-        <ListItemText primary="Inbox" />
-        {pop ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
-        </ListItem>
-        </List>
-        <Collapse in={pop} >
-        <List component="div" disablePadding>
-        {menu4.map((item, index) => (
-            <ListItem
-              key={item.title}
-              disablePadding
-              component={Link}
-              to={item.path}
-              button
-              selected={item.path === path}
-            >
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText primary={item.title} />
-          </ListItemButton>
+        <List sx={{ marginLeft: '-17px' }}>
+          <ListItem>
+            <ListItemButton onClick={handlePop}>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Inbox" />
+              {pop ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
           </ListItem>
-))}
         </List>
-      </Collapse>
-      
+        <Collapse in={pop}>
+          <List component="div" disablePadding>
+            {menu4.map((item, index) => (
+              <ListItem
+                key={item.title}
+                disablePadding
+                component={Link}
+                to={item.path}
+                button
+                selected={item.path === path}
+              >
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemIcon>
+                    <StarBorder />
+                  </ListItemIcon>
+                  <ListItemText primary={item.title} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Collapse>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />

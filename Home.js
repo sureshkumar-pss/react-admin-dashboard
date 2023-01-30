@@ -18,7 +18,15 @@ import Avatar from '@mui/material/Avatar';
 import Chart from './Chart.js';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import { CardActionArea } from '@mui/material';
+import Divider from '@mui/material/Divider';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 const Home = () => {
   function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
@@ -80,46 +88,222 @@ const Home = () => {
   }, []);
   return (
     <div>
-      {/* <Box>
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          <Grid item xs={3} sx={{ backgroundColor: '#321fdb' }}>
-            <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. 
-        </Typography>
+      <Box>
+        <Grid container spacing={2}>
+          <Grid item xs={3}>
+            <Box
+              sx={{
+                boxShadow:
+                  '0px 2px 4px -1px rgb(0 0 0 / 20%) ,0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)',
+                borderRadius: '12px',
+              }}
+            >
+              <Box
+                style={{
+                  backgroundColor: '#3b5998',
+                  padding: '15px',
+                  borderRadius: '12px  12px 0px 0px',
+                }}
+              >
+                <FacebookIcon
+                  sx={{
+                    marginLeft: '35%',
+                    color: 'white',
+                    fontSize: '4rem',
+                    paddingTop: '10px',
+                  }}
+                />
+              </Box>
+              <Box sx={{ display: 'flex', gap: '40px', padding: '17px' }}>
+                <Box>
+                  <Box sx={{ fontSize: '25px', paddingLeft: '25px' }}>89K</Box>
+                  <Box
+                    sx={{
+                      color: 'rgba(44,56,74,.681)!important',
+                      fontSize: '12px',
+                      paddingLeft: '25px',
+                    }}
+                  >
+                    FRIENDS
+                  </Box>
+                </Box>
+
+                <Divider orientation="vertical" />
+                <Box>
+                  <Box sx={{ fontSize: '25px' }}>89K</Box>
+                  <Box
+                    sx={{
+                      color: 'rgba(44,56,74,.681)!important',
+                      fontSize: '12px',
+                    }}
+                  >
+                    FEEDS
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
           </Grid>
-          <Grid item xs={3} sx={{ backgroundColor: '#39f' }}>
-            <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. 
-        </Typography>
+          <Grid item xs={3}>
+            <Box
+              sx={{
+                boxShadow:
+                  '0px 2px 4px -1px rgb(0 0 0 / 20%) ,0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)',
+                borderRadius: '12px',
+              }}
+            >
+              <Box
+                style={{
+                  backgroundColor: '#00aced',
+                  padding: '15px',
+                  borderRadius: '12px  12px 0px 0px',
+                }}
+              >
+                <TwitterIcon
+                  sx={{
+                    marginLeft: '35%',
+                    color: 'white',
+                    fontSize: '4rem',
+                    paddingTop: '10px',
+                  }}
+                />
+              </Box>
+              <Box sx={{ display: 'flex', gap: '40px', padding: '17px' }}>
+                <Box>
+                  <Box sx={{ fontSize: '25px', paddingLeft: '25px' }}>89K</Box>
+                  <Box
+                    sx={{
+                      color: 'rgba(44,56,74,.681)!important',
+                      fontSize: '12px',
+                      paddingLeft: '25px',
+                    }}
+                  >
+                    FRIENDS
+                  </Box>
+                </Box>
+
+                <Divider orientation="vertical" />
+                <Box>
+                  <Box sx={{ fontSize: '25px' }}>89K</Box>
+                  <Box
+                    sx={{
+                      color: 'rgba(44,56,74,.681)!important',
+                      fontSize: '12px',
+                    }}
+                  >
+                    FEEDS
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
           </Grid>
-          <Grid item xs={3} sx={{ backgroundColor: '#ffc107' }}>
-            <Typography paragraph>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Rhoncus dolor purus non enim praesent elementum facilisis leo vel.
-              Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-              gravida rutrum quisque non tellus.
-            </Typography>
+          <Grid item xs={3}>
+            <Box
+              sx={{
+                boxShadow:
+                  '0px 2px 4px -1px rgb(0 0 0 / 20%) ,0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)',
+                borderRadius: '12px',
+              }}
+            >
+              <Box
+                style={{
+                  backgroundColor: '#4875b4',
+                  padding: '15px',
+                  borderRadius: '12px  12px 0px 0px',
+                }}
+              >
+                <LinkedInIcon
+                  sx={{
+                    marginLeft: '35%',
+                    color: 'white',
+                    fontSize: '4rem',
+                    paddingTop: '10px',
+                  }}
+                />
+              </Box>
+              <Box sx={{ display: 'flex', gap: '40px', padding: '17px' }}>
+                <Box>
+                  <Box sx={{ fontSize: '25px', paddingLeft: '25px' }}>89K</Box>
+                  <Box
+                    sx={{
+                      color: 'rgba(44,56,74,.681)!important',
+                      fontSize: '12px',
+                      paddingLeft: '25px',
+                    }}
+                  >
+                    FRIENDS
+                  </Box>
+                </Box>
+
+                <Divider orientation="vertical" />
+                <Box>
+                  <Box sx={{ fontSize: '25px' }}>89K</Box>
+                  <Box
+                    sx={{
+                      color: 'rgba(44,56,74,.681)!important',
+                      fontSize: '12px',
+                    }}
+                  >
+                    FEEDS
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
           </Grid>
-          <Grid item xs={3} sx={{ backgroundColor: '#dc3545' }}>
-            <Typography paragraph>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Rhoncus dolor purus non enim praesent elementum facilisis leo vel.
-              Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-              gravida rutrum quisque non tellus.
-            </Typography>
+          <Grid item xs={3}>
+            <Box
+              sx={{
+                boxShadow:
+                  '0px 2px 4px -1px rgb(0 0 0 / 20%) ,0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)',
+                borderRadius: '12px',
+              }}
+            >
+              <Box
+                style={{
+                  backgroundColor: '#f9b115',
+                  padding: '15px',
+                  borderRadius: '12px  12px 0px 0px',
+                }}
+              >
+                <CalendarMonthIcon
+                  sx={{
+                    marginLeft: '35%',
+                    color: 'white',
+                    fontSize: '4rem',
+                    paddingTop: '10px',
+                  }}
+                />
+              </Box>
+              <Box sx={{ display: 'flex', gap: '40px', padding: '17px' }}>
+                <Box>
+                  <Box sx={{ fontSize: '25px', paddingLeft: '25px' }}>89K</Box>
+                  <Box
+                    sx={{
+                      color: 'rgba(44,56,74,.681)!important',
+                      fontSize: '12px',
+                      paddingLeft: '25px',
+                    }}
+                  >
+                    FRIENDS
+                  </Box>
+                </Box>
+
+                <Divider orientation="vertical" />
+                <Box>
+                  <Box sx={{ fontSize: '25px' }}>89K</Box>
+                  <Box
+                    sx={{
+                      color: 'rgba(44,56,74,.681)!important',
+                      fontSize: '12px',
+                    }}
+                  >
+                    FEEDS
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
           </Grid>
         </Grid>
-      </Box> */}
+      </Box>
       <Box
         sx={{
           boxShadow:
